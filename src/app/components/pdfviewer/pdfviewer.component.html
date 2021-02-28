@@ -1,0 +1,17 @@
+<p>Monthly Newsletter Khuddam Ottawa East!</p>
+<!-- <div class="pdf-container">
+    <pdf-viewer [src]="src"
+                [original-size]="false"
+    ></pdf-viewer>
+  </div> -->
+  <div *ngIf="isLoaded" style="text-align: center;">
+    <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
+    <span>{{ page }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+  </div>
+  
+  <pdf-viewer src="assets/images/newsletter/Newsletter February 2020.pdf"
+              [show-all]="false"
+              [page]="page"
+              (after-load-complete)="afterLoadComplete($event)"
+  ></pdf-viewer>

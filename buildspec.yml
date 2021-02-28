@@ -1,0 +1,26 @@
+version: '0.2'
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  pre_build:
+    commands:
+      - echo "Prebuild, installing npm dependencies"
+      # This will install dependeices from package.json
+      - npm install
+  build:
+   commands:
+     # Builds Angular application
+     - echo Build started on `date`
+     # It will compile code and create artifactory in dist directory 
+     - npm run build    
+  post_build:
+    commands:
+     # Clear out the old contents in the bucket connected to CloudFronts
+     - aws s3 rm s3://$BUCKET_NAME --recursive
+     - echo S3 bucket $BUCKET_NAME is cleared.
+     # Copy Angular build output (dist) folder to S3 bucket
+     - aws s3 cp dist/angular-web-app s3://$BUCKET_NAME --recursive
+     # Create CloudFront invalidation to clear CloudFront cache
+     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
+     - echo Build completed on `date`

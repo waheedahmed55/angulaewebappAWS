@@ -1,0 +1,54 @@
+
+<app-header></app-header>
+<app-nav></app-nav>
+
+<p>Up Comping Events</p>
+
+ <app-slider></app-slider>
+  
+ <p>Prayer Timings</p>
+  <table id="t01">
+    <tr>
+      <th>Namaz</th>
+      <th>Timing</th> 
+      <th>Comments</th>
+    </tr>
+    <tr *ngFor="let item of prayer">
+      <td>{{item.Namaz}}</td>
+      <td>{{item.Timing}}</td>
+      <td>{{item.Comments}}</td>
+    </tr>
+  </table>
+  
+  <h2>Note: Prayer timings during Ramzan will subject to change thus calendar will be updated</h2>
+    <p>Namaz Centers & Prayer Timings</p>
+    <table id="t01">
+      <tr>
+        <th>Namaz</th>
+        <th>Location</th> 
+        <th>Time</th>
+      </tr>
+      <tr *ngFor="let item of location"> 
+        <td>{{item.Namaz}}</td>
+        <td>{{item.Location}}</td>
+        <td>{{item.Time}}</td>
+      </tr>   
+    </table>
+    
+    
+              
+              <table id="users">
+                <tr>
+                  <th *ngFor="let col of columns">
+                    {{col}}
+                  </th>
+                </tr>
+                <tr *ngFor="let user of employees">
+                  <td *ngFor="let col of index">
+                    {{user[col]}}
+                  </td>
+                </tr>
+              </table>
+  
+
+ <app-footer></app-footer>

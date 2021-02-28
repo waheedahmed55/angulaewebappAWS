@@ -1,0 +1,26 @@
+[{
+    "Namaz": "Fajr",
+    "Timing": "5:00am",
+    "Comments": "-"
+  },
+  {
+    "Namaz": "Zuhr",
+    "Timing": "1:30pm",
+    "Comments": "Combined with Asr untill May"
+  },
+  {
+    "Namaz": "Asr",
+    "Timing": "4:00pm",
+    "Comments": "Combined with Asr"
+  },
+  {
+    "Namaz": "Magrib",
+    "Timing": "7:25pm",
+    "Comments": "Combined with Isha"
+  },
+  {
+    "Namaz": "Isha",
+    "Timing": "8:25pm",
+    "Comments": "Combined with Magrib"
+  }
+  ]

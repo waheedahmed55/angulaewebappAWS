@@ -1,0 +1,62 @@
+h3{
+  font-family: Calibri; 
+  font-size: 25pt;         
+  font-style: normal; 
+  font-weight: bold; 
+  color:SlateBlue;
+  text-align: center; 
+  text-decoration: underline
+}
+
+.form-group {
+  text-align: left;
+}
+.validate{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+input[type=radio] {
+  margin: 4px 0 0;
+  margin-top: 1px\9;
+  line-height: normal;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+table{
+  font-family: Calibri; 
+  color:black; 
+  font-size: 11pt; 
+  font-style: normal;
+  font-weight: bold;
+  background-color: SlateBlue; 
+  border-collapse: collapse; 
+  border: 2px solid navy
+}
+table.inner{
+  border: 0px
+}
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+.buttonHolder{ 
+  text-align: center; 
+}
+.labeltext{
+float: left; 
+display: inline;
+}
+.spaceradiobtn{
+margin:5px;
+text-align: left;
+margin-left: 50px;
+}
+.border{
+border: 7px solid gray;
+border-style:dotted solid double;
+border-width: thick;
+
+}
+

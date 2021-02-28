@@ -1,0 +1,140 @@
+<app-header></app-header>
+<app-nav></app-nav>
+<div style="text-align:center">
+  <h1 class="well">
+    Regristration
+  </h1>
+    <div class="container">
+      <div class="col-md-12 border">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 >Member Regristration Form</h3>
+          <div class="card-body">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
+                  
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="fname" placeholder="First name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                      <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                          <div *ngIf="f.fname.errors.required">First is required</div>
+                      </div>
+                  </div>
+      
+                         <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lname" placeholder="Last name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }" />
+                      <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+                          <div *ngIf="f.lname.errors.required">Last is required</div>                   
+                      </div>
+                  </div>
+      
+                  <div class="form-group">
+                      <label>DOB</label>
+                       <input type="date" formControlName="dob" placeholder="Dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">             
+                      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                          <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
+                      </div>
+                  </div>
+      
+                  
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" formControlName="email" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+      
+                  
+                  <div class="form-group">
+                      <label>Mobile Number</label>
+                      <input type="text" formControlName="mobile" placeholder="Mobile number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                      <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                          <div *ngIf="f.mobile.errors.required">mobile number is required</div>
+                      </div>
+                  </div>
+      
+                  
+               
+      
+                  <div class="form-group">
+                    <td class="labeltext"><strong>Gender:</strong></td>
+             
+					
+							<input id="male" type="radio"  value="male" name="gender" formControlName="gender"  [ngClass]="{ 'is-invalid': submitted && myForm.errors }">
+              <label  for="male">Male</label>
+              <input id="female" type="radio" value="female" name="gender" formControlName="gender"  [ngClass]="{ 'is-invalid': submitted && myForm.errors }">
+              <label  for="female">Female</label>         
+              
+                <div class="validate"  *ngIf="submitted && myForm.errors?.required">please select gender</div>
+        
+          
+    </div>
+                  <div class="form-group">
+                      <label>Member Code</label>
+                      <input type="text" formControlName="memcode" placeholder="Member code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.memcode.errors }" />
+                      <div *ngIf="submitted && f.memcode.errors" class="invalid-feedback">
+                          <div *ngIf="f.memcode.errors.required">Member code is required</div>
+                         
+                      </div>
+                  </div>
+      
+                  
+                  <div class="form-group">
+                      <label>City</label>
+                      <input type="text" formControlName="city" placeholder="City" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                          <div *ngIf="f.city.errors.required">city is required</div>
+                      </div>
+                  </div>
+                  
+      
+                       <div class="form-group">
+                      <label>Province</label>
+                      <input type="text" formControlName="province" placeholder="Province" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.province.errors }" />
+                      <div *ngIf="submitted && f.province.errors" class="invalid-feedback">
+                          <div *ngIf="f.province.errors.required">Province is required</div>                   
+                      </div>
+                  </div>
+      
+                       <div class="form-group">
+                      <label>Postal code</label>
+                      <input type="text" formControlName="postcode" placeholder="Postal code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.postcode.errors }" />
+                      <div *ngIf="submitted && f.postcode.errors" class="invalid-feedback">
+                          <div *ngIf="f.postcode.errors.required">Email is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <td class="labeltext"><strong>Profession:</strong></td>
+             
+					
+							<input type="radio"  value="IT" name="profession" formControlName="profession"(change)="showProfession()"  [ngClass]="{ 'is-invalid': submitted && profession.errors }">
+              <label  >IT</label>
+              <input  type="radio" value="Doctor" name="profession" formControlName="profession"(change)="showProfession()"  [ngClass]="{ 'is-invalid': submitted && profession.errors }">
+              <label  >Doctor</label>    
+              <input  type="radio"  value="Student" name="profession" formControlName="profession" (change)="showProfession()"  [ngClass]="{ 'is-invalid': submitted && profession.errors }">
+              <label  >Student</label>
+              <input  type="radio" value="Others" name="profession" formControlName="profession" (change)="showProfession()"  [ngClass]="{ 'is-invalid': submitted && profession.errors }">
+              <label  >Others</label>    
+<div  *ngIf="isProfesionselectedOthers">
+  <input type="text" name="Other_profession" maxlength="30" formControlName="profession" required/>
+</div>
+              
+                <div class="validate"  *ngIf="submitted && profession.errors?.required">please select profession</div>
+        
+          
+    </div>
+                  <div class="text-center">
+                      <button class="btn btn-primary mr-1"  >Register</button>
+                      <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+                  </div>
+              </form>
+          </div>
+        </div>  
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>

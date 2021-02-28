@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-nav></app-nav>
+<div style="text-align:center">
+    <h1 class="well">
+      Submit Feedback
+    </h1>
+      <div class="container">
+          <div class="col-md-5">
+              <div class="form-area"> 
+                <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+                      <br style="clear:both">
+                      <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+                      <div class="form-group">
+                                      <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name" required>
+                                      <div *ngIf="validate.name.touched && validate.name.errors" class="invalid-feedback">
+                                        <div *ngIf="validate.name.errors.required">Name is required</div>
+                                        </div>
+                                        
+                                        
+                      </div>
+                      <div class="form-group">
+                                      <input type="email" class="form-control" id="email"  placeholder="Email" formControlName="email" required>
+                                      <div *ngIf="validate.email.touched && validate.email.errors" class="invalid-feedback">
+                                        <div *ngIf="validate.email.errors.required">Email is required</div>
+                                        <div *ngIf="validate.email.errors.pattern">Email must be a valid email address</div>
+                                                    </div>
+                      </div>
+                      <div class="form-group">
+                                      <input type="phone" class="form-control" id="mobile"  placeholder="Mobile Number" formControlName="mobile" required>
+                                      <div *ngIf="validate.mobile.touched && validate.mobile.errors" class="invalid-feedback">
+                                        <div *ngIf="validate.mobile.errors.required">Mobile number is required</div>
+                                        </div>
+                      </div>
+                      <div class="form-group">
+                                      <input type="text" class="form-control" id="subject"  placeholder="Subject" formControlName="subject" required>
+                                      <div *ngIf="validate.subject.touched && validate.subject.errors" class="invalid-feedback">
+                                        <div *ngIf="validate.subject.errors.required">Subject is required</div>
+                                        </div>
+                      </div>
+                      <div class="form-group">
+                                      <textarea class="form-control" type="textarea" id="message"  placeholder="Message" formControlName="message" maxlength="140" rows="7"></textarea>
+                                      <div *ngIf="validate.message.touched && validate.message.errors" class="invalid-feedback">
+                                        <div *ngIf="validate.message.errors.required">Message is required</div>
+                                        </div>              
+                      </div>
+                      <button type="submit" class="btn btn-primary pull-right" [disabled]="!FormData.valid">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<app-footer></app-footer>

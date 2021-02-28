@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+.footer {
+    position: fixed;
+      background: #000000;
+      color: #ffffff;
+      bottom: 0px;
+    width:100%;
+  }
+  .column { 
+                  float: left; 
+                  width: 27%; 
+                 height: 200px;  
+              } 
+              p { 
+                  font-size:20px; 
+                  font-weight:bold; 
+              } 
+  .example {
+      float:  left;
+      width:  150px;
+      height: 250px;
+      background-size: cover;
+  }
+  .example-cover img {
+    object-fit: cover;
+  }
+  #header-text{
+    height:200px;
+    border:2px solid;
+    background-color: #1879b9;
+    padding: 10px 10px;
+   }
+  #header-right {
+    float: right;
+  }
+  #slogan-text {
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+  #header-logo {
+    float: left;
+    width: 200px;
+    height: 75px;
+  }
+  #header-50yrlogo {
+    float: right;
+    width: 150px;
+    height: 100px;
+  }
+  #header-bismillah {
+    width: 250px;
+    height: 50px;
+  }
+  #top-title {
+      text-align: center;
+      font-size: 50px;
+  }
+
+  
+.mypanel {
+  background-color: white;
+  color: #222;
+}
+
+.mypanel .title {
+  background-color: #ccc;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #666;
+}
+
+.mypanel .body {
+  padding: 10px;
+}
+
+.mypanel .body.hidden {
+  display: none;
+}

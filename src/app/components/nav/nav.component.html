@@ -1,0 +1,15 @@
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a [routerLink]="['/']"  class="w3-button w3-bar-item" >Home</a>
+  <a [routerLink]="['/khuddam']"   class="w3-button w3-bar-item" >Khuddam</a>
+  <a [routerLink]= "['/ansar']"  class="w3-button w3-bar-item">Ansar</a>
+  <a  class="w3-button w3-bar-item"target="_blank">Atfal</a>
+  <a class="w3-button w3-bar-item"target="_blank">Jamaat</a>
+  <a [routerLink]="['/facility']"  class="w3-button w3-bar-item">Facilities</a>
+  <a [routerLink]="['/eventinfo']" class="w3-button w3-bar-item">Event Info</a>
+  <a  [routerLink]="['/contact']"class="w3-button w3-bar-item">Contact</a>
+  <a  [routerLink]="['/registration']"class="w3-button w3-bar-item">Registration</a>
+  <a  [routerLink]="['/login']"class="w3-button w3-bar-item">Login</a>
+  <a  [routerLink]="['/library']"class="w3-button w3-bar-item">Library</a>
+</nav>
+<router-outlet></router-outlet>
