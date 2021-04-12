@@ -1,5 +1,8 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import 'assets/css/variables.scss';
+
 /* You can add global styles to this file, and also import other style files */
-.footer {
+/*.footer {
     position: fixed;
       background: #000000;
       color: #ffffff;
@@ -78,4 +81,30 @@
 
 .mypanel .body.hidden {
   display: none;
+}*/
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+.fade{opacity:1 !important}
+.founder-section .card{margin-bottom: 15px;}
+.home-founder,.home-founder-img{
+  object-fit: contain;
+  height: 256px;
+}
+.text-justify{text-align: justify;}
+.slider img{width:100%}
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
 }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import{ FirebaseService} from '../../service/firebase.service';
+import { AuthenticationService } from 'src/app/service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-      private firebaseService: FirebaseService
+      private firebaseService: FirebaseService,
+      private authService: AuthenticationService
   ) {
 
   }
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
           username: ['', Validators.required],
           password: ['', Validators.required]
       });
-      this.getLoginUserDetails();
+      //this.getLoginUserDetails();
 
       // get return url from route parameters or default to '/'
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -39,16 +41,27 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
-  onSubmit() {
-    if(this.loginUserDetails!=null){
-    let user=  this.loginUserDetails.filter(m=>m.uname=== this.loginForm.controls.username.value && m.password===this.loginForm.controls.password.value);
-if(user.length>0){
-  this.router.navigate(['/dashboard']);
+  async onSubmit() {
+    this.loading = true;
+    try {
+      const response = await this.authService.signIn(
+        this.loginForm.controls.username.value,
+        this.loginForm.controls.password.value        
+      );
+     this.authService.getuserLoginDetial().subscribe(userdata=>{
+     });
+      console.log('on login',response);
+      
+     this.router.navigate(['/dashboard']);
+    this.loading = false;
+    } catch (error) {
+      this.loading = false;
+      console.log(error);
+    }
 }
+
   
-    
-  }
-}
+
 
   getLoginUserDetails() {
     this.firebaseService.getLoginUserDetail().snapshotChanges().pipe(

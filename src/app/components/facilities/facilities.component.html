@@ -1,34 +1,39 @@
 <app-header></app-header>
 <app-nav></app-nav>
-<h1>Facilities At Bait Un Naseer Mosque</h1>
+<section class="pt-5 pb-5">
+<div class="container ">
 
-<!-- <p>A Collapsible:</p>
-<button class="collapsible">Open Collapsible</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div> -->
+  <h1>Facilities At Bait Un Naseer Mosque</h1>
 
-<p>Main Floor:</p>
-<!-- <button class="collapsible">Gym</button>
-<div class="content">
-  <p>The Size of Gym is 200 Sqft and its Single Gym.The Gym is designed to play 1 sport at time. Gym has proper stage and can be used for bigger events</p>
+  <!-- <p>A Collapsible:</p>
+  <button class="collapsible">Open Collapsible</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div> -->
+  
+  <p>Main Floor:</p>
+  <!-- <button class="collapsible">Gym</button>
+  <div class="content">
+    <p>The Size of Gym is 200 Sqft and its Single Gym.The Gym is designed to play 1 sport at time. Gym has proper stage and can be used for bigger events</p>
+  </div>
+  <button class="collapsible">Prayer Hall</button>
+  <div class="content">
+    <p>Prayer Hall capcity is 200 people of normal size.It has arrangment of audio/video and seating for elederly people</p>
+  </div>
+  <button class="collapsible">Kitchen</button>
+  <div class="content">
+    <p>The kitchen is professional industrial level fully equppied with 16 burner range, 2 single burner, double and signle sink, and cooler.</p>
+  </div> -->
+  
+  <!-- <div *ngFor="let item of inputData">
+  <app-tab [inputData]="item"></app-tab>
+  </div> -->
+  <app-accordion>
+    <app-accordion-group [title]="item.title" *ngFor="let item of inputData">
+      <app-description [description]="item.description"></app-description>
+    </app-accordion-group>
+  </app-accordion>
 </div>
-<button class="collapsible">Prayer Hall</button>
-<div class="content">
-  <p>Prayer Hall capcity is 200 people of normal size.It has arrangment of audio/video and seating for elederly people</p>
-</div>
-<button class="collapsible">Kitchen</button>
-<div class="content">
-  <p>The kitchen is professional industrial level fully equppied with 16 burner range, 2 single burner, double and signle sink, and cooler.</p>
-</div> -->
-
-<!-- <div *ngFor="let item of inputData">
-<app-tab [inputData]="item"></app-tab>
-</div> -->
-<app-accordion>
-  <app-accordion-group [title]="item.title" *ngFor="let item of inputData">
-    <app-description [description]="item.description"></app-description>
-  </app-accordion-group>
-</app-accordion>
+</section>
 <app-slider></app-slider>
 <app-footer></app-footer>

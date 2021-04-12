@@ -1,14 +1,15 @@
 <app-header></app-header>
 <app-nav></app-nav>
+
 <div style="text-align:center">
   <h1 class="well">
-    Regristration
+    Personal Information Form
   </h1>
     <div class="container">
       <div class="col-md-12 border">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-          <h3 >Member Regristration Form</h3>
+          <h3 >Member PIF Form</h3>
           <div class="card-body">
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
                   
@@ -137,4 +138,5 @@
       </div>
     </div>
 </div>
+
 <app-footer></app-footer>

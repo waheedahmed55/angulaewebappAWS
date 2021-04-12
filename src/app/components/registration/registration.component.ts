@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpClient, HttpErrorResponse } from '@angular/common/
 import { ContactService } from 'src/app/service/contact.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import {FirebaseService} from 'src/app/service/firebase.service';
+import { AuthenticationService } from 'src/app/service/auth.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   registration:Registration = new Registration();
 
   FormData: FormGroup;
-  constructor(private builder: FormBuilder, private contact: ContactService, private firebasedb:FirebaseService) {
+  constructor(public authService: AuthenticationService, private builder: FormBuilder, private contact: ContactService, private firebasedb:FirebaseService) {
 //     this.registration.fname = '';
 // this.registration.lname ='';
 // this.registration.dob = '';
@@ -66,19 +67,23 @@ export class RegistrationComponent implements OnInit {
         return;
     } 
 
-this.registration.fname = this.registerForm.controls.fname.value;
-this.registration.lname = this.registerForm.controls.lname.value;
+this.registration.first_name = this.registerForm.controls.fname.value;
+this.registration.last_name = this.registerForm.controls.lname.value;
 this.registration.dob = this.registerForm.controls.dob.value;
 this.registration.email = this.registerForm.controls.email.value;
 this.registration.mobile = this.registerForm.controls.mobile.value;
 this.registration.gender = this.registerForm.controls.gender.value;
-this.registration.memcode = this.registerForm.controls.memcode.value;
+this.registration.memberCode = this.registerForm.controls.memcode.value;
 this.registration.city = this.registerForm.controls.city.value;
 this.registration.province = this.registerForm.controls.province.value;
-this.registration.postcode = this.registerForm.controls.postcode.value;
+this.registration.postal_code = this.registerForm.controls.postcode.value;
 this.registration.profession = this.registerForm.controls.profession.value;
-console.log(this.registration);
+console.log("this is me",this.registration);
     this.firebasedb.save(this.registration);
+
+    this.authService.postUserDetails(this.registration).subscribe(data=>{
+      console.log(data);
+    });
 
   }
 
@@ -100,15 +105,15 @@ console.log(this.registration);
 
 
 export class Registration{
-  fname :string;
-  lname :string;
+  first_name :string;
+  last_name :string;
   dob :string;
   email :string;
   mobile :string;
   gender :string;
-  memcode :string;
+  memberCode :string;
   city :string;
   province :string;
-  postcode :string;
+  postal_code :string;
   profession :string;
 }

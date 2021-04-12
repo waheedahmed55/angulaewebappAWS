@@ -10,6 +10,8 @@ import{RegistrationComponent} from './components/registration/registration.compo
 import{SignupComponent} from './components/signup/signup.component';
 import{LoginComponent} from './components/login/login.component';
 import{DashboardComponent} from './components/dashboard/dashboard.component';
+import{AdminComponent} from './components/admin/admin.component';
+import{AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {path: '', component: ContentComponent, pathMatch: 'full'},
@@ -21,7 +23,9 @@ const routes: Routes = [
    {path: 'registration', component:RegistrationComponent, pathMatch:'full'},
    {path: 'signup',component:SignupComponent, pathMatch: 'full'},
    {path: 'login',component:LoginComponent, pathMatch: 'full'},
-   {path: 'dashboard',component:DashboardComponent, pathMatch: 'full'}
+   {path: 'dashboard',component:DashboardComponent, pathMatch: 'full',canActivate: [AuthGuard] },
+   {path: 'admin',component:AdminComponent, pathMatch: 'full',canActivate: [AuthGuard]
+  }
    
 ];
 

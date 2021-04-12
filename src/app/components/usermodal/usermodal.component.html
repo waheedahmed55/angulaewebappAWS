@@ -1,26 +1,9 @@
-<app-header></app-header>
-<app-usernav></app-usernav>
-<div class="container">
-<h2>
-  Welcome AMJ Member Profile: !
-</h2>
-<p>First Name: {{ currentUser.cognitoresponse["attributes"].given_name }}</p>
-<p>Last Name: {{ currentUser.cognitoresponse["attributes"].family_name }}</p>
-<p>
-  Member Code: {{ currentUser.cognitoresponse["attributes"]["custom:member_code"] }}
-</p>
-
-<div style="text-align:center">
-<h1 class="well">
-    Personal Information Form
-  </h1>
-   <div class="container">
-      <div class="col-md-12 border">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 >Member PIF Form</h3>
-          <div class="card-body">
-<form [formGroup]="userDetailForm" (ngSubmit)="updateUserDetailForm()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+    <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Edit User Details</h5>
+        <button type="button" (click)="modal.dismiss('cancel click')"  class="close" data-dismiss="modal"><span>X</span></button>
+    </div>
+    <div class="modal-body">
   <div class="form-group">
   <label>Member Code:</label>
     
@@ -79,21 +62,9 @@
       formControlName="postal_code"
     />
   </div>
-  <div id="container">
-  <button type="submit" class="btn btn-info">Submit Form</button>
-  <button type="button" class="btn btn-info" (click)="enableForm()">Edit Form</button>
-  <button type="button" class="btn btn-info" (click)="deleteForm()">Delete Form</button>
-  </div>
+    </div>
+    <div class="modal-footer">
+        <a  (click)="modal.dismiss('cancel click')"  class="btn btn-outline-secondary">Back to Dashboard</a>
+        <button type="submit" class="btn btn-danger" [disabled]="submitted">Save</button>
+    </div>
 </form>
-</div>
-  </div>  
-  </div>
-  </div>
-  </div>
-<div class="button-section">
-  <button type="button" class="btn btn-info" (click)="onLogOut()">
-    Logout
-  </button>
-</div>
-</div>
-<app-footer></app-footer>

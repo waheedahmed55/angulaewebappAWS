@@ -43,7 +43,20 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { CommonModule } from '@angular/common';
+import {Amplify} from '@aws-amplify/core';
+import { AuthenticationService } from './service/auth.service';
+import { UsernavComponent } from './components/usernav/usernav.component';
+import { AdminComponent } from './components/admin/admin.component';
+import {UserModalComponent} from './components/usermodal/usermodal.component';
 
+
+Amplify.configure({Auth:
+  {
+    region: 'us-east-2',
+    userPoolId: 'us-east-2_eucJACIFc',
+    userPoolWebClientId: '3q7f3pgg1shg107v206d8ov211',
+    storage: sessionStorage
+  }})
 
 @NgModule({
   declarations: [
@@ -67,7 +80,10 @@ import { CommonModule } from '@angular/common';
     KtabsetComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsernavComponent,
+    AdminComponent,
+    UserModalComponent
     
   ],
   imports: [
@@ -85,8 +101,8 @@ import { CommonModule } from '@angular/common';
     AngularFirestoreModule
 
   ],
-  
-  providers: [HttpService, ContactService,AngularFirestore],
+  entryComponents: [ UserModalComponent],
+  providers: [HttpService, ContactService,AngularFirestore,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

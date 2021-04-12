@@ -1,5 +1,6 @@
 <app-header></app-header>
 <app-nav></app-nav>
+<div class="form-signin">
 <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -24,4 +25,5 @@
         <a routerLink="/signup" class="btn btn-link">Register</a>
     </div>
 </form>
+</div>
 <app-footer></app-footer>
