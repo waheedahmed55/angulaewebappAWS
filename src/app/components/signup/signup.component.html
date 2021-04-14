@@ -3,6 +3,35 @@
 <div class="form-signin">
 <h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="form-group">
+      <label class="col-12 p-0">Did you have valid member code? <span class="required">*</span></label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="review_ask_yes" value="YES" formControlName="review_ask" name="review_ask" class="custom-control-input">
+        <label class="custom-control-label" for="review_ask_yes">Yes</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="review_ask_no" value="NO" formControlName="review_ask" name="review_ask" class="custom-control-input">
+        <label class="custom-control-label" for="review_ask_no">No</label>
+      </div>
+      <div *ngIf="submitted && f.review_ask.errors" class="invalid-feedback">
+        <div *ngIf="f.review_ask.errors.required">Please select at least one option.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-12 p-0">Did you have valid email address? <span class="required">*</span></label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="email_ask_yes" value="YES" formControlName="email_ask" name="email_ask" class="custom-control-input">
+        <label class="custom-control-label" for="email_ask_yes">Yes</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="email_ask_no" value="NO" formControlName="email_ask" name="email_ask" class="custom-control-input">
+        <label class="custom-control-label" for="email_ask_no">No</label>
+      </div>
+      <div *ngIf="submitted && f.email_ask.errors" class="invalid-feedback">
+        <div *ngIf="f.email_ask.errors.required">Please select at least one option.</div>
+      </div>
+    </div>
+  <div *ngIf="f.review_ask.value == 'YES' && f.email_ask.value == 'YES'">
   <div class="form-group">
     <label for="memCode">Member Code</label>
     <input
@@ -83,6 +112,7 @@
       Register
     </button>
     <a routerLink="/login" class="btn btn-link">Cancel</a>
+  </div>
   </div>
 </form>
 </div>
