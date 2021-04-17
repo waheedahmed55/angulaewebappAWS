@@ -12,7 +12,7 @@ import {FirebaseService} from 'src/app/service/firebase.service'
 export class ContactComponent implements OnInit {
   FormData: FormGroup;
   contactDetails: UserConact = new UserConact();
-  alert:Alert;
+  alert:Alert={"type":"success","message":"The message was sent sucessfully to Admin"};
   constructor(private builder: FormBuilder, private contact: ContactService, private firebasesvc:FirebaseService) { 
   
   }
@@ -41,6 +41,8 @@ export class ContactComponent implements OnInit {
       console.log(data);
       this.FormData.reset();
       this.alert = {"type":"success","message":"The message was sent sucessfully to Admin"}; 
+      setTimeout(() => this.close(alert), 10000);
+
     });
   //  console.log("Form is Submitted");
     

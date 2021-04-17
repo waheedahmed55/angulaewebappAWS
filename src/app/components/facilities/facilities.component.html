@@ -28,11 +28,14 @@
   <!-- <div *ngFor="let item of inputData">
   <app-tab [inputData]="item"></app-tab>
   </div> -->
-  <app-accordion>
-    <app-accordion-group [title]="item.title" *ngFor="let item of inputData">
-      <app-description [description]="item.description"></app-description>
-    </app-accordion-group>
-  </app-accordion>
+  
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel [title]="item.title" *ngFor="let item of inputData">
+      <ng-template ngbPanelContent>{{item.description}}
+      </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+
 </div>
 </section>
 <app-slider></app-slider>
