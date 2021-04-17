@@ -13,25 +13,18 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  PostMessage(input: any) {
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    //   })
-    // };
-    return this.http.post(this.mailApi, input, { responseType: 'text' }).pipe(
-      map(
-        (response) => {
-          if (response) {
-            return response;
-          }
-        },
-        (error: any) => {
-          return error;
-        }
-      )
-    )
+  //send contact details 
+  postContactDetails(userreqBody) {
+    console.log("I am in function POST");
+    
+
+    return this.http.post(
+      `https://3ukwz2ga94.execute-api.us-east-2.amazonaws.com/prod/contact`,
+      userreqBody
+    );
   }
 
-}
+  }
+
+
 

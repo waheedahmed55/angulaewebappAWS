@@ -8,12 +8,15 @@ import {FirebaseService} from 'src/app/service/firebase.service'
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
   FormData: FormGroup;
   contactDetails: UserConact = new UserConact();
+  alert:Alert;
   constructor(private builder: FormBuilder, private contact: ContactService, private firebasesvc:FirebaseService) { 
   
   }
+
 
   ngOnInit() {
     this.FormData = this.builder.group({
@@ -34,17 +37,19 @@ export class ContactComponent implements OnInit {
     this.contactDetails.subject = this.FormData.controls.subject.value;
     this.contactDetails.message = this.FormData.controls.message.value;
     
-    this.firebasesvc.saveContact(this.contactDetails);
-    this.contact.PostMessage(FormData)
-      .subscribe(response => {
-        this.FormData.reset();
-                location.href = 'https://mailthis.to/confirm'
-        
-      }, error => {
-        console.warn(error.responseText)
-        console.log({ error })
-      })
-     
+    this.contact.postContactDetails(this.contactDetails).subscribe(data=>{
+      console.log(data);
+      this.FormData.reset();
+      this.alert = {"type":"success","message":"The message was sent sucessfully to Admin"}; 
+    });
+  //  console.log("Form is Submitted");
+    
+    //console.log("Form is Reset"); 
+  }
+  close(alert){
+   // console.log("alert in close");
+    this.alert = null;
+
   }
   
 
@@ -54,5 +59,9 @@ export class UserConact{
   email: string;
   mobile: string;
   subject: string;
+  message: string;
+}
+interface Alert {
+  type: string;
   message: string;
 }

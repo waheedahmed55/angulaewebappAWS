@@ -1,5 +1,8 @@
 <app-header></app-header>
 <app-nav></app-nav>
+<ngb-alert *ngIf="alert && alert.type && alert.message" [type]="alert.type" (click)="close(alert)">{{ alert.message }}</ngb-alert>
+
+
 <div style="text-align:center">
     <h1 class="well">
       Submit Feedback
