@@ -12,7 +12,7 @@ import {FirebaseService} from 'src/app/service/firebase.service'
 export class ContactComponent implements OnInit {
   FormData: FormGroup;
   contactDetails: UserConact = new UserConact();
-  alert:Alert={"type":"success","message":"The message was sent sucessfully to Admin"};
+  alert:Alert;
   constructor(private builder: FormBuilder, private contact: ContactService, private firebasesvc:FirebaseService) { 
   
   }
